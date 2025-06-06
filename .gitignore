@@ -1,3 +1,4 @@
 .env
 /entorno_tmdb
-_pycache_
+entorno_tmdb
+__pycache__
