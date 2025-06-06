@@ -1,7 +1,13 @@
 .env
+<<<<<<< HEAD
 /entorno_tmdb
 <<<<<<< HEAD
 __pycache__
 =======
 __pycache__
+>>>>>>> main
+=======
+/entorno_tmdb_grupo2
+__pycache__
+entorno_tmdb/
 >>>>>>> main
