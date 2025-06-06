@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Listado de estrenos</title>
+</head>
+<body>
+    {% for pelicula in datos  %}
+        <h3>{{ pelicula.title }}</h3>
+        <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
+    {% endfor %}
+</body>
+</html>
