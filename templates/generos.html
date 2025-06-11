@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Géneros de Películas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+
+        #busqueda {
+            padding: 0.5rem;
+            width: 300px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 0.5rem 0;
+            cursor: pointer;
+            color: #0056b3;
+        }
+
+        li:hover {
+            text-decoration: underline;
+        }
+
+        li.oculto {
+            display: none;
+        }
+
+        #peliculas-genero {
+            margin-top: 2rem;
+        }
+
+        .pelicula {
+            margin-bottom: 1.5rem;
+        }
+
+        .pelicula img {
+            width: 200px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Géneros de Películas</h1>
+
+    <!-- 🟡 Input de búsqueda -->
+    <input type="text" id="busqueda" placeholder="Buscar género...">
+
+    <!-- 🟢 Lista de géneros -->
+    <ul id="lista-generos">
+        {% for genero in datos %}
+            <li data-id="{{ genero.id }}">{{ genero.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- 🔵 Contenedor de películas -->
+    <h2>Películas del género seleccionado</h2>
+    <div id="peliculas-genero"></div>
+
+    <!-- 🔻 Script -->
+    <script>
+        const inputBusqueda = document.getElementById("busqueda");
+        const lista = document.getElementById("lista-generos");
+        const elementos = lista.getElementsByTagName("li");
+        const contenedorPeliculas = document.getElementById("peliculas-genero");
+
+        // Filtrar géneros por texto
+        inputBusqueda.addEventListener("keyup", function () {
+            const texto = inputBusqueda.value.toLowerCase();
+            for (let i = 0; i < elementos.length; i++) {
+                const nombreGenero = elementos[i].textContent.toLowerCase();
+                elementos[i].classList.toggle("oculto", !nombreGenero.includes(texto));
+            }
+        });
+
+        // Mostrar películas al hacer clic en un género
+        for (let i = 0; i < elementos.length; i++) {
+            elementos[i].addEventListener("click", async function () {
+                const generoId = this.dataset.id;
+                const generoNombre = this.textContent;
+
+                const respuesta = await fetch(`/peliculas_por_genero/${generoId}`);
+                const peliculas = await respuesta.json();
+
+                contenedorPeliculas.innerHTML = `<h3>${generoNombre}</h3>`;
+
+                if (peliculas.length === 0) {
+                    contenedorPeliculas.innerHTML += "<p>No hay películas disponibles para este género.</p>";
+                    return;
+                }
+
+                peliculas.forEach(pelicula => {
+                    const imgUrl = pelicula.poster_path
+                        ? `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`
+                        : "https://via.placeholder.com/200x300?text=Sin+imagen";
+
+                    contenedorPeliculas.innerHTML += `
+                        <div class="pelicula">
+                            <h4>${pelicula.title}</h4>
+                            <img src="${imgUrl}" alt="${pelicula.title}">
+                        </div>
+                    `;
+                });
+            });
+        }
+    </script>
+</body>
+</html>
