@@ -6,7 +6,7 @@ from routes.mejor_valoradas import mejor_valoradas_bp
 #from routes.proximos import proximos_bp
 #from routes.generos import generos_bp
 
-app=Flask(__name__)
+app=Flask(__name__, static_folder='static', template_folder='templates')
 
 app.register_blueprint(popular_bp)
 app.register_blueprint(mejor_valoradas_bp)

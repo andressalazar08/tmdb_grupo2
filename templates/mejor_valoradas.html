@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{{ url_for('static', filename='mejor_valoradas.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mejor_valoradas.css') }}">
     <title>Listado de peliculas mejor valoradas</title>
 </head>
 <body>
@@ -19,14 +19,21 @@
             <button type="submit">Aplicar</button>
         </form>
   </header>
-      <div class="contenedor-peliculas">
+    <div class="contenedor-peliculas">
         {% for pelicula in datos %}
-            <div class="pelicula">
-                <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
-                <h3>{{ pelicula.title }}</h3>
-                <p>Año: {{ pelicula.release_date[:4] }}</p>
-                <p>Rating: {{ pelicula.vote_average }}</p>
+        <div class="pelicula">
+            <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
+            <h3>{{ pelicula.title }}</h3>
+            <p>Año: {{ pelicula.release_date[:4] }}</p>
+            <div class="rating-circle" style="--porcentaje: {{ (pelicula.vote_average * 10)|int }};">
+             <div class="circle">
+                <div class="mask full"></div>
+                <div class="mask half"></div>
+                <div class="inside-circle">{{ (pelicula.vote_average * 10)|int }}%</div>
             </div>
+        </div>
+
+    </div>
         {% else %}
             <p>No se encontraron películas.</p>
         {% endfor %}

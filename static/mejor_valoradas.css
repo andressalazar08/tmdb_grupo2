@@ -76,3 +76,47 @@ button:hover {
     margin: 3px 0;
     color: #555;
 }
+
+.pelicula p.rating {
+    font-weight: bold;
+    color: #27ae60; /* verde */
+}
+
+.rating-circle {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        #2ecc71 calc(var(--porcentaje) * 1%), 
+        #e0e0e0 0
+    );
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    position: relative;
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    background: white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.inside-circle {
+    position: relative;
+    z-index: 2;
+}
