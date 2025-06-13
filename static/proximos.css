@@ -1,9 +1,17 @@
- .titulo{
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0%;
+    }
+ 
+    
+.titulo{
     background-color: rgb(16, 70, 116);
-    border: 100%;
+    color: rgb(255, 255, 255);
+    margin-top: 0%;
+    height: 50px;
     padding: 5%;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0%;
     display: flex;
     justify-content: center;
-    border-radius: 50px ;
- }
+    }
