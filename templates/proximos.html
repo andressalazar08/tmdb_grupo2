@@ -2,9 +2,22 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Listado de estrenos</title>
+    <title>listado de peliculas</title>
+    <h2>PROXIMAMENTE</h2>
+
 </head>
 <body>
+    <form method="get">
+    <select name="Ordenar">
+
+        <option value="1">Todo</option>
+        <option value="original_title">Titulo (Z-A)</option>
+        <option value="3">Titulo (A-Z)</option>
+        <option value="popularity">Popularidad</option>
+        <option value="5">Terror</option>
+    </select>
+    <button type="submit">Aplicar</button>
+    </form>
     {% for pelicula in datos  %}
         <h3>{{ pelicula.title }}</h3>
         <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
