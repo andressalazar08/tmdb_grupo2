@@ -15,9 +15,9 @@ def proximos():
     url = f"https://api.themoviedb.org/3/movie/upcoming?api_key={API_KEY}&language=es-ES&page=1"
     response = requests.get(url)
     datos = response.json()["results"]
-    if seleccion=="popularity""origin_title":
+    if seleccion=="popularity":
         datos.sort(key=lambda x: x.get("popularity"))
-        datos.sort(key=lambda x: x.get("origin_title"))
-
+    elif seleccion=="title":
+         datos.sort(key=lambda x: x.get("title"))
     return render_template("proximos.html", datos=datos)
 
