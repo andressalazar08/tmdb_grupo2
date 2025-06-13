@@ -2,22 +2,23 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='proximos.css')}}">
     <title>listado de peliculas</title>
-    <h2>PROXIMAMENTE</h2>
-<a href="https://api.themoviedb.org/3/movie/upcoming?api_key={API_KEY}&language=es-ES&page=1"></a>
 </head>
 <body>
+     <h2 class="titulo">PROXIMAMENTE</h2>
+    <a href="https://api.themoviedb.org/3/movie/upcoming?api_key={API_KEY}&language=es-ES&page=1"></a>
     <form method="get">
-        <select name="Ordenar">
+            <select name="Ordenar">
                 <option value="1">Todo</option>
-                <option value="2">Titulo (Z-A)</option>
+                <option value="genre_ids">Titulo (Z-A)</option>
                 <option value="title">Titulo (A-Z)</option>
                 <option value="popularity">Popularidad</option>
-                <option value="5">Terror</option>
-        </select>
+                <option value="vote_average">Mas votadas</option>
+            </select>
         <button type="submit">Buscar</button>
     </form>
-    <a href="https://api.themoviedb.org/3/movie/upcoming?api_key={API_KEY}&language=es-ES&page=1">
     {% for pelicula in datos  %}
         <h3>{{ pelicula.title }}</h3>
         <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">

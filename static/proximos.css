@@ -1,0 +1,9 @@
+ .titulo{
+    background-color: rgb(16, 70, 116);
+    border: 100%;
+    padding: 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px ;
+ }

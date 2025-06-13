@@ -17,7 +17,11 @@ def proximos():
     datos = response.json()["results"]
     if seleccion=="popularity":
         datos.sort(key=lambda x: x.get("popularity"))
-    elif seleccion=="title":
+    elif seleccion=="genre_ids":
+         datos.sort(key=lambda x: x.get("genre_ids"))
+    elif seleccion =="title":
          datos.sort(key=lambda x: x.get("title"))
+    elif seleccion =="vote_average":
+         datos.sort(key=lambda x: x.get("vote_average"))
     return render_template("proximos.html", datos=datos)
 
