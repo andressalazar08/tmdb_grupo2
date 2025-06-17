@@ -1,17 +1,44 @@
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0%;
-    }
+    background-color: #121212;
+    color: white;
+}
  
     
 .titulo{
-    background-color: rgb(16, 70, 116);
-    color: rgb(255, 255, 255);
-    margin-top: 0%;
-    height: 50px;
-    padding: 5%;
+    font-size: 150px;
+    background-color: rgb(1, 26, 58);
+    color: rgba(255, 255, 255, 0.614);
+    height: 55px;
+    padding: 2%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0%;
     display: flex;
     justify-content: center;
+    line-height: 1%;
     }
+select {
+    background-color: rgb(1,26,58);
+    color: rgba(255, 255, 255, 0.614);
+    width: 200px;
+    padding: 1%;
+    height: 50px;
+    margin-top: 2%;
+    font-size: 15px;
+    border: none;
+    border-radius: 50px;
+}
+button{
+    background-color: rgb(1,26,58);
+    color: rgba(255, 255, 255, 0.614);
+    width: 100px;
+    padding: 1%;
+    margin-top: 15px;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+}
+.contenedor{
+
+}
