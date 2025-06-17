@@ -6,8 +6,17 @@
     <title>DETALLES DE LA PELICULA</title>
 </head><link rel="stylesheet" href="{{ url_for('static', filename='detalles.css') }}">
 
-
 <body>
+        <h1>Información de Películas</h1>
     
+            <h2>Titulo:</h2>
+          
+                <h2> {{ pelicula.title }} </h2>
+                <img src="https://image.tmdb.org/t/p/w500/sgTAWJFaB2kBvdQxRGabYFiQqEK.jpg" alt="{{ pelicula.title }}">
+                <p> {{ pelicula.overview }} </p>
+           
+
+
+
 </body>
 </html>
