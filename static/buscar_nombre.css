@@ -1,0 +1,10 @@
+.botonenviar
+{
+    padding: 10px;
+    background-color: greenyellow;
+    margin-top: 15px;
+    border: none;
+    border-radius: 20px;
+    color: blue;
+    cursor: pointer;
+}
