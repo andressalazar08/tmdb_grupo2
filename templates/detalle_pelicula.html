@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Pelicula</title>
+</head>
+<body>
+    <h3><a href="/busqueda">Volver</a></h3><br>
+    <img src="https://image.tmdb.org/t/p/w200{{ data.poster_path }}" alt="{{ data.title }}">
+
+    <h2>{{data.original_title}}</li></h2>
+    <ul>
+        <li><h3>Fecha Lanzamiento:{{data.release_date}}</li></h3>
+        <li><h3>Sinopsis <br>{{data.overview}}</li><br></h3>
+    </ul>
+
+    <!-- {{data}}-->
+</body>
+</html>
