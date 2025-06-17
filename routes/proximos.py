@@ -24,4 +24,3 @@ def proximos():
     elif seleccion =="vote_average":
          datos.sort(key=lambda x: x.get("vote_average"))
     return render_template("proximos.html", datos=datos)
-
