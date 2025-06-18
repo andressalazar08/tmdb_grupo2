@@ -18,9 +18,9 @@
         <h3>Listado de peliculas encontradas</h3>
     {% endif %}
 
-    <!-- AQUI SE MOSTRARA LAS PELICULAS CON LINK EN LA IMAGEN, ESTA EN CONSTRUCCIÓN-->
+    <!-- AQUI SE MOSTRARA LAS PELICULAS CON LINK EN LA IMAGEN-->
     {% for pelicula in datos %}
-        <a href="/"><img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.original_title}}"></a>
+        <a href="/detallespel/{{pelicula.id}}"><img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.original_title}}"></a>
     {% endfor %}
 
     <!-- AQUI SE MUESTRAN LAS PELICULAS EN VIÑETAS
