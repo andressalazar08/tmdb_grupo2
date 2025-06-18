@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='proximos.css')}}">
+    <title>listado de peliculas</title>
+</head>
+<body>
+     <h2 class="titulo">PROXIMAMENTE</h2>
+    <form method="get">
+            <select name="Ordenar">
+                <option value="1">Todo</option>
+                <option value="genre_ids">Titulo (Z-A)</option>
+                <option value="title">Titulo (A-Z)</option>
+                <option value="popularity">Popularidad</option>
+                <option value="vote_average">Mas votadas</option>
+                <button type="submit">Buscar</button> 
+            </select>
+            <button type="submit">Buscar</button>
+        </form>
+         {% for pelicula in datos  %}
+         <div class="contenedor">
+            <h3>{{ pelicula.title }}</h3>
+            <img  src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}"> 
+        </div>
+    {% endfor %}
+    </a>
+</body>
+</html>
