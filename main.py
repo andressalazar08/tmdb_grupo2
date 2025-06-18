@@ -7,7 +7,7 @@ from routes.proximos import proximos_bp
 from routes.generos import generos_bp
 from routes.detalle_pelicula import detalles_pel
 
-app=Flask(__name__)
+app=Flask(__name__, static_folder='static', template_folder='templates')
 
 app.register_blueprint(popular_bp)
 app.register_blueprint(mejor_valoradas_bp)

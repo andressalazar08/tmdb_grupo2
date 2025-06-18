@@ -3,12 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mejor_valoradas.css') }}">
     <title>Listado de peliculas mejor valoradas</title>
 </head>
 <body>
-     {% for pelicula in datos  %}
-        <h3>{{ pelicula.title }}</h3>
-        <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
-    {% endfor %}
+    <header>
+     <h1>Películas Mejor Valoradas</h1>
+        <form method="get">
+            <input type="text" name="buscar" placeholder="Buscar por título" value="{{ request.args.get('buscar', '') }}">
+            <select name="ordenar">
+                <option value="titulo" {% if request.args.get('ordenar') == 'titulo' %}selected{% endif %}>Ordenar por título</option>
+                <option value="año" {% if request.args.get('ordenar') == 'año' %}selected{% endif %}>Ordenar por año</option>
+                <option value="rating" {% if request.args.get('ordenar') == 'rating' %}selected{% endif %}>Ordenar por rating</option>
+            </select>
+            <button type="submit">Aplicar</button>
+        </form>
+  </header>
+    <div class="contenedor-peliculas">
+        {% for pelicula in datos %}
+        <div class="pelicula">
+            <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
+             <div class="rating-circle" style="--porcentaje: {{ (pelicula.vote_average * 10)|int }};">
+             <div class="circle">
+                <div class="mask full"></div>
+                <div class="mask half"></div>
+                <div class="inside-circle">{{ (pelicula.vote_average * 10)|int }}%</div>
+            </div>
+            </div>
+            <div class="textos"> 
+                <h3>{{ pelicula.title }}</h3>
+                <p>Año: {{ pelicula.release_date[:4] }}</p>
+            </div>
+        </div>
+        {% else %}
+            <p>No se encontraron películas.</p>
+        {% endfor %}
+      </div>
 </body>
 </html>
