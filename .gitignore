@@ -1,4 +1,3 @@
 .env
-/entorno_tmdb_grupo2
-__pycache__
-entorno_tmdb/
+__pycache__/
+entorno_peliculas

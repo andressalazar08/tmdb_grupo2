@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Búsqueda de peliculas</title>
+</head>
+<body>
+     <div class="section">
+        <form method="post">
+            <h3>Ingresa palabra clave</h3>
+            <input type="text" name="buscar">
+            <button class="botonenviar" type="submit">Busqueda</button><br><br>
+        </form>
+        <h3><a href="/">Volver</a></h3><br>
+     </div>
+    
+    {% if datos %}
+        <h3>Listado de peliculas encontradas</h3>
+    {% endif %}
+
+    <!-- AQUI SE MOSTRARA LAS PELICULAS CON LINK EN LA IMAGEN-->
+    {% for pelicula in datos %}
+        <a href="/detallespel/{{pelicula.id}}"><img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.original_title}}"></a>
+    {% endfor %}
+
+    <!-- AQUI SE MUESTRAN LAS PELICULAS EN VIÑETAS
+    {% for pelicula in datos %}
+        <ul>
+            <li>{{pelicula.original_title}}</li>
+            <li>{{pelicula.release_date}}</li>
+            <li>{{pelicula.overview}}</li><br>
+            <img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
+        </ul> 
+    {% endfor %}-->
+        
+        
+        <!-- AQUI SE MUESTRAN LAS PELICULAS EN UN TABLA
+        <table>
+            <tr>
+                <th>Titulo</th><th>Resumen</th><th>Año</th><th>Poster</th>
+                {% for pelicula in datos %}
+                    <tr>
+                        <td>{{pelicula.original_title}}              </td>
+                        <td>{{pelicula.overview}}  </td> 
+                        <td>{{pelicula.release_date}}  </td>
+                        <td><img src="https://image.tmdb.org/t/p/w200{{ pelicula.poster_path }}" alt="{{ pelicula.title }}"></td>
+                    </tr>
+                {% endfor %}
+            </tr>
+        </table>-->
+
+    <!-- AQUI SE MUESTRAN LAS PELICULAS EN MODO TEXTO, PLANO, SIN UN ORDEN
+    {{datos}}-->
+</body>
+</html>
