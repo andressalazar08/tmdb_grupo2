@@ -1,0 +1,26 @@
+body {
+background-color: rgb(239, 239, 239);
+
+}
+
+h1 {
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: rgb(48, 69, 205);
+font-style: italic;
+}
+
+h2 {
+color: rgb(48, 69, 205);
+font-style: italic;
+}
+
+img {
+border-radius: 100px;
+
+}
+
+p {
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-style: italic;
+
+}

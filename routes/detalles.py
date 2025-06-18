@@ -17,7 +17,16 @@ def detalles(id_pelicula):
 
     if response.status_code == 200:
         datos_pelicula = response.json()
+        print (datos_pelicula)
         return render_template("detalles.html", pelicula=datos_pelicula)
     else:
         return render_template("error.html", mensaje="No se pudo obtener los detalles de la película.")
+
+
+        
+
+
+
+
+
 
